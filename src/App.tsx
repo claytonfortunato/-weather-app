@@ -1,16 +1,17 @@
 import * as C from "./styles";
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import { optionType } from "./types";
+
+import Search from "./components/Search";
 
 const App = (): JSX.Element => {
   const [term, setTerm] = useState<string>("");
   const [options, setOptions] = useState<[]>([]);
+  const [city, setCity] = useState<optionType | null>(null);
 
   const getSearchOptions = (value: string) => {
     fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
-        process.env.REACT_APP_API_KEY
-      }`
+      `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=b3660e06ac5278c2fde37c09d03b5771`
     )
       .then((res) => res.json())
       .then((data) => setOptions(data));
@@ -25,31 +26,38 @@ const App = (): JSX.Element => {
     getSearchOptions(value);
   };
 
-  const onOptionsSelect = (option: optionType) => {
-    console.log(option.name);
-
+  const getForecast = (city: optionType) => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${option.lat}&lon=${option.lon}&appid=${process.env.REACT_APP_API_KEY}`
-    );
+      `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=b3660e06ac5278c2fde37c09d03b5771`
+    )
+      .then((res) => res.json())
+      .then((data) => console.log({ data }));
   };
+
+  const onSubmit = () => {
+    if (!city) return;
+  };
+
+  const onOptionsSelect = (option: optionType) => {
+    setCity(option);
+  };
+
+  useEffect(() => {
+    if (city) {
+      setTerm(city.name);
+      setOptions([]);
+    }
+  }, [city]);
 
   return (
     <C.Container>
-      <C.Header>Previsão do tempo</C.Header>
-      <p>Digite abaixo um lugar do qual você deseja saber o tempo</p>
-      <C.Search>
-        <input type="text" value={term} onChange={onInputChange} />
-        <button>Pesquisar</button>
-      </C.Search>
-      <ul>
-        {options.map((option: optionType, index: number) => (
-          <li key={option.name + "-" + index}>
-            <button className="btn" onClick={() => onOptionsSelect(option)}>
-              <p>{option.name}</p>
-            </button>
-          </li>
-        ))}
-      </ul>
+      <Search
+        term={term}
+        options={options}
+        onInputChange={onInputChange}
+        onOptionSelect={onOptionsSelect}
+        onSubmit={onSubmit}
+      />
     </C.Container>
   );
 };
