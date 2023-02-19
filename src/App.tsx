@@ -1,27 +1,36 @@
 import * as C from "./styles";
 import { ChangeEvent, useState } from "react";
+import { optionType } from "./types";
 
 const App = (): JSX.Element => {
   const [term, setTerm] = useState<string>("");
+  const [options, setOptions] = useState<[]>([]);
 
   const getSearchOptions = (value: string) => {
     fetch(
-      `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&lang=en&appid=${
+      `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&appid=${
         process.env.REACT_APP_API_KEY
-      }
       }`
     )
       .then((res) => res.json())
-      .then((data) => console.log({ data }));
+      .then((data) => setOptions(data));
   };
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
+    setTerm(value);
 
     if (value === "") return;
 
-    setTerm(e.target.value);
     getSearchOptions(value);
+  };
+
+  const onOptionsSelect = (option: optionType) => {
+    console.log(option.name);
+
+    fetch(
+      `https://api.openweathermap.org/data/2.5/weather?lat=${option.lat}&lon=${option.lon}&appid=${process.env.REACT_APP_API_KEY}`
+    );
   };
 
   return (
@@ -32,6 +41,15 @@ const App = (): JSX.Element => {
         <input type="text" value={term} onChange={onInputChange} />
         <button>Pesquisar</button>
       </C.Search>
+      <ul>
+        {options.map((option: optionType, index: number) => (
+          <li key={option.name + "-" + index}>
+            <button className="btn" onClick={() => onOptionsSelect(option)}>
+              <p>{option.name}</p>
+            </button>
+          </li>
+        ))}
+      </ul>
     </C.Container>
   );
 };

@@ -11,6 +11,31 @@ export const Container = styled.div`
   p {
     margin: 20px 0px;
   }
+
+  ul {
+    max-width: 500px;
+    background-color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 19%;
+    left: 36%;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  .btn {
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    background-color: #fff;
+    text-align: left;
+
+    &:hover {
+      background-color: #ddd;
+    }
+  }
 `;
 
 export const Header = styled.h1`
