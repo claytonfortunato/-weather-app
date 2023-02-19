@@ -8,6 +8,7 @@ const App = (): JSX.Element => {
     fetch(
       `http://api.openweathermap.org/geo/1.0/direct?q=${value.trim()}&limit=5&lang=en&appid=${
         process.env.REACT_APP_API_KEY
+      }
       }`
     )
       .then((res) => res.json())
