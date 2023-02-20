@@ -21,7 +21,9 @@ const Search = ({
 }: Props) => {
   return (
     <C.Container>
-      <C.Header>Previsão do tempo</C.Header>
+      <C.Header>
+        <span>Previsão</span> do tempo
+      </C.Header>
       <p>Digite abaixo um lugar do qual você deseja saber o tempo</p>
       <C.Search>
         <input type="text" value={term} onChange={onInputChange} />
