@@ -8,6 +8,11 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
+  background-color: rgba(255, 255, 255, 0.2);
+
+  border-radius: 10px;
+  margin-top: 0.2rem;
+
   p {
     margin: 20px 0px;
   }
@@ -18,7 +23,7 @@ export const Container = styled.div`
     text-align: center;
     position: absolute;
     top: 19%;
-    left: 36%;
+    left: 39%;
   }
 
   li {

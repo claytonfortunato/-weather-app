@@ -1,21 +1,51 @@
 import { forecastType } from "../../types";
 
+import * as C from "./styles";
+
 type Props = {
   data: forecastType;
 };
+
+const Degree = ({ temp }: { temp: number }): JSX.Element => (
+  <span>
+    {temp}
+    <sup>0</sup>
+  </span>
+);
 
 const Forecast = ({ data }: Props): JSX.Element => {
   const today = data.list[0];
 
   return (
-    <div>
+    <C.Container>
       <div>
         <h2>
           {data.name} <span>{data.country}</span>
         </h2>
         <h1>{Math.round(today.main.temp)}</h1>
+        <p>
+          {today.weather[0].main} {today.weather[0].description}
+        </p>
+        <p>
+          H: <Degree temp={Math.ceil(today.main.temp_max)} /> L:{""}
+          <Degree temp={Math.floor(today.main.temp_min)} />
+        </p>
       </div>
-    </div>
+      <div className="temp">
+        {data.list.map((item, i) => (
+          <div key={i}>
+            <p>{i === 0 ? "Now" : new Date(item.dt * 1000).getHours()}</p>
+            <img
+              src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
+              alt={`weather-icon-${item.weather[0].description}`}
+            />
+            <p>
+              <Degree temp={Math.round(item.main.temp)} />
+            </p>
+          </div>
+        ))}
+      </div>
+    </C.Container>
   );
 };
 
