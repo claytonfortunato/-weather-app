@@ -18,16 +18,16 @@ const useForecast = () => {
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
-    setTerm(e.target.value);
+    setTerm(value);
 
-    if (value === "") {
+    if (value !== "") {
       getSearchOptions(value);
     }
   };
 
   const getForecast = (city: optionType) => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat=${city.lat}&lon=${city.lon}&appid=b3660e06ac5278c2fde37c09d03b5771`
+      `https://api.openweathermap.org/data/2.5/forecast?lat=${city.lat}&lon=${city.lon}&appid=b3660e06ac5278c2fde37c09d03b5771`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -36,7 +36,8 @@ const useForecast = () => {
           list: data.list.slice(0, 16),
         };
         setForecast(forecastData);
-      });
+      })
+      .catch((e) => console.log({ e }));
   };
 
   const onSubmit = () => {
@@ -45,7 +46,7 @@ const useForecast = () => {
     getForecast(city);
   };
 
-  const onOptionsSelect = (option: optionType) => {
+  const onOptionSelect = (option: optionType) => {
     setCity(option);
   };
 
@@ -61,7 +62,7 @@ const useForecast = () => {
     options,
     forecast,
     onInputChange,
-    onOptionsSelect,
+    onOptionSelect,
     onSubmit,
   };
 };

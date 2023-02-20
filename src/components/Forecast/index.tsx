@@ -1,4 +1,3 @@
-import React from "react";
 import { forecastType } from "../../types";
 
 type Props = {
@@ -11,8 +10,10 @@ const Forecast = ({ data }: Props): JSX.Element => {
   return (
     <div>
       <div>
-        <h2>{data.name}</h2>
-        <span>{data.country}</span>
+        <h2>
+          {data.name} <span>{data.country}</span>
+        </h2>
+        <h1>{Math.round(today.main.temp)}</h1>
       </div>
     </div>
   );

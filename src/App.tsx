@@ -1,8 +1,8 @@
 import * as C from "./styles";
 
 import Search from "./components/Search";
-import useForecast from "./hooks/useForecast";
 import Forecast from "./components/Forecast";
+import useForecast from "./hooks/useForecast";
 
 const App = (): JSX.Element => {
   const {
@@ -10,7 +10,7 @@ const App = (): JSX.Element => {
     options,
     forecast,
     onInputChange,
-    onOptionsSelect,
+    onOptionSelect,
     onSubmit,
   } = useForecast();
 
@@ -23,7 +23,7 @@ const App = (): JSX.Element => {
           term={term}
           options={options}
           onInputChange={onInputChange}
-          onOptionSelect={onOptionsSelect}
+          onOptionSelect={onOptionSelect}
           onSubmit={onSubmit}
         />
       )}

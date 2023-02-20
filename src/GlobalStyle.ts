@@ -14,13 +14,8 @@ body {
   display: flex;
   justify-content: center;
   
-  background: rgb(170, 130, 183);
-  background: linear-gradient(
-    90deg,
-    rgba(170, 130, 183, 1) 0%,
-    rgba(245, 118, 111, 1) 50%,
-    rgba(249, 192, 111, 1) 100%
-  );
+  background: url('assets/sunset.jpg') no-repeat center center fixed;
+  background-size: cover;
 }
 
 `;
