@@ -2,9 +2,20 @@ import { forecastType } from "../../types";
 
 import * as C from "./styles";
 
+import Sunrise from "../icons/Sunrise";
+import Sunset from "../icons/Sunset";
+
 type Props = {
   data: forecastType;
 };
+
+import {
+  getHumidityValue,
+  getWindDirection,
+  getVisibilityValue,
+  getSunTime,
+  getPop,
+} from "../../helpers/index";
 
 const Degree = ({ temp }: { temp: number }): JSX.Element => (
   <span>
@@ -27,7 +38,7 @@ const Forecast = ({ data }: Props): JSX.Element => {
           {today.weather[0].main} {today.weather[0].description}
         </p>
         <p>
-          H: <Degree temp={Math.ceil(today.main.temp_max)} /> L:{""}
+          H: <Degree temp={Math.ceil(today.main.temp_max)} /> L: {""}
           <Degree temp={Math.floor(today.main.temp_min)} />
         </p>
       </div>
@@ -44,6 +55,16 @@ const Forecast = ({ data }: Props): JSX.Element => {
             </p>
           </div>
         ))}
+      </div>
+      <div>
+        <div>
+          <Sunrise />
+          {getSunTime(data.sunrise)}
+        </div>
+        <div>
+          <Sunset />
+          {getSunTime(data.sunset)}
+        </div>
       </div>
     </C.Container>
   );
