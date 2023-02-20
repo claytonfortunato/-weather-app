@@ -18,11 +18,11 @@ const useForecast = () => {
 
   const onInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value.trim();
-    setTerm(value);
+    setTerm(e.target.value);
 
-    if (value === "") return;
-
-    getSearchOptions(value);
+    if (value === "") {
+      getSearchOptions(value);
+    }
   };
 
   const getForecast = (city: optionType) => {
@@ -41,6 +41,8 @@ const useForecast = () => {
 
   const onSubmit = () => {
     if (!city) return;
+
+    getForecast(city);
   };
 
   const onOptionsSelect = (option: optionType) => {

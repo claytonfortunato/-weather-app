@@ -1,6 +1,6 @@
 import { ChangeEvent } from "react";
 
-import { optionType } from "../types";
+import { optionType } from "../../types";
 
 import * as C from "./styles";
 

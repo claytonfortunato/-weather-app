@@ -1,9 +1,8 @@
 import * as C from "./styles";
-import { ChangeEvent, useState, useEffect } from "react";
-import { optionType } from "./types";
 
 import Search from "./components/Search";
 import useForecast from "./hooks/useForecast";
+import Forecast from "./components/Forecast";
 
 const App = (): JSX.Element => {
   const {
@@ -18,7 +17,7 @@ const App = (): JSX.Element => {
   return (
     <C.Container>
       {forecast ? (
-        "we have a forecast"
+        <Forecast data={forecast} />
       ) : (
         <Search
           term={term}
