@@ -34,8 +34,8 @@ const Forecast = ({ data }: Props) => {
         <h2>
           {data.name} <span>{data.country}</span>
         </h2>
-        {/* <h1>{Math.round(today.main.temp)}°F</h1> */}
-        <div className="temp">{today.main.temp.toFixed()}</div>
+        <h1>{Math.round(today.main.temp)}°F</h1>
+
         <p>
           {today.weather[0].main} ({today.weather[0].description})
         </p>
