@@ -15,7 +15,6 @@ import {
   getWindDirection,
   getVisibilityValue,
   getSunTime,
-  getPop,
 } from "../../helpers/index";
 
 const Degree = ({ temp }: { temp: number }): JSX.Element => (
@@ -31,16 +30,12 @@ const Forecast = ({ data }: Props) => {
   return (
     <>
       <C.Option>
-        <div>
+        <C.City>
           <h2>
             {data.name} <span>{data.country}</span>
           </h2>
-          <h1>{Math.round(today.main.temp)}°F</h1>
-
-          <p>
-            {today.weather[0].main} ({today.weather[0].description})
-          </p>
-        </div>
+          <h1>{Math.round(today.main.temp)} °F</h1>
+        </C.City>
         <div className="temp">
           {data.list.map((item, i) => (
             <div key={i}>
@@ -56,6 +51,9 @@ const Forecast = ({ data }: Props) => {
           ))}
         </div>
       </C.Option>
+      {/* <C.Description>
+        {today.weather[0].main} ({today.weather[0].description})
+      </C.Description> */}
       <C.Container>
         <C.Sun>
           <Sunrise />
@@ -63,6 +61,17 @@ const Forecast = ({ data }: Props) => {
           <Sunset />
           {getSunTime(data.sunset)}
         </C.Sun>
+
+        <Tile
+          icon="feels"
+          title="Feels like"
+          info={<Degree temp={Math.round(today.main.feels_like)} />}
+          description={`Feels ${
+            Math.round(today.main.feels_like) < Math.round(today.main.temp)
+              ? "colder"
+              : "warmer"
+          }`}
+        />
 
         <Tile
           icon="visibility"
@@ -75,16 +84,6 @@ const Forecast = ({ data }: Props) => {
           title="Humidity"
           info={`${today.main.humidity} %`}
           description={getHumidityValue(today.main.humidity)}
-        />
-        <Tile
-          icon="feels"
-          title="Feels like"
-          info={<Degree temp={Math.round(today.main.feels_like)} />}
-          description={`Feels ${
-            Math.round(today.main.feels_like) < Math.round(today.main.temp)
-              ? "colder"
-              : "warmer"
-          }`}
         />
 
         <Tile
