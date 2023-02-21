@@ -13,7 +13,9 @@ export const Suggestions = ({
     {options.map((option: optionType, index: number) => (
       <li key={option.name + "-" + index}>
         <button className="btn" onClick={() => onSelect(option)}>
-          <p>{option.name}</p>
+          <p>
+            {option.name}, {option.country}
+          </p>
         </button>
       </li>
     ))}
