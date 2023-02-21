@@ -45,8 +45,15 @@ export const Sun = styled.div`
 `;
 
 export const Description = styled.p`
-  display: flex;
+  position: relative;
+  right: -48%;
 
+  background-color: rgba(255, 255, 255, 0.2);
   transform-origin: 0 0;
   transform: rotate(269deg);
+
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  padding: 0.4rem;
 `;

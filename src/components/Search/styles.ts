@@ -6,9 +6,6 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  background-color: rgba(255, 255, 255, 0.2);
-
-  border-radius: 10px;
   margin-top: 0.2rem;
 
   p {

@@ -14,6 +14,8 @@ body {
   
   background: url('assets/sunset.jpg') no-repeat center center fixed;
   background-size: cover;
+  
 }
+
 
 `;

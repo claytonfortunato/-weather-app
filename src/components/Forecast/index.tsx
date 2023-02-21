@@ -51,9 +51,7 @@ const Forecast = ({ data }: Props) => {
           ))}
         </div>
       </C.Option>
-      {/* <C.Description>
-        {today.weather[0].main} ({today.weather[0].description})
-      </C.Description> */}
+      <C.Description>{today.weather[0].main}</C.Description>
       <C.Container>
         <C.Sun>
           <Sunrise />
