@@ -2,6 +2,8 @@ import { ChangeEvent } from "react";
 
 import { optionType } from "../../types";
 
+import { Suggestions } from "../Suggestions";
+
 import * as C from "./styles";
 
 type Props = {
@@ -29,15 +31,7 @@ const Search = ({
         <input type="text" value={term} onChange={onInputChange} />
         <button onClick={onSubmit}>Pesquisar</button>
       </C.Search>
-      <ul>
-        {options.map((option: optionType, index: number) => (
-          <li key={option.name + "-" + index}>
-            <button className="btn" onClick={() => onOptionSelect(option)}>
-              <p>{option.name}</p>
-            </button>
-          </li>
-        ))}
-      </ul>
+      <Suggestions options={options} onSelect={onOptionSelect} />
     </C.Container>
   );
 };

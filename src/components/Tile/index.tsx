@@ -1,11 +1,10 @@
 import Feels from "../icons/Feels";
 import Humidity from "../icons/Humidity";
-
 import Visibility from "../icons/Visibility";
 import Wind from "../icons/Wind";
 
 type Props = {
-  icon: "wind" | "feels" | "humidity" | "visibility" | "pressure" | "pop";
+  icon: "wind" | "feels" | "humidity" | "visibility";
   title: string;
   info: string | JSX.Element;
   description?: string | JSX.Element;
