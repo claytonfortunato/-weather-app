@@ -11,3 +11,7 @@ export const Container = styled.div`
     overflow-x: scroll;
   }
 `;
+
+export const Option = styled.div`
+  width: 100px;
+`;
