@@ -1,5 +1,6 @@
 import { forecastType } from "../../types";
 import Tile from "../Tile";
+import Degree from "../Degree";
 
 import * as C from "./styles";
 
@@ -17,13 +18,6 @@ import {
   getSunTime,
 } from "../../helpers/index";
 
-const Degree = ({ temp }: { temp: number }): JSX.Element => (
-  <span>
-    {temp}
-    <sup>0</sup>
-  </span>
-);
-
 const Forecast = ({ data }: Props) => {
   const today = data.list[0];
 
@@ -34,12 +28,12 @@ const Forecast = ({ data }: Props) => {
           <h2>
             {data.name} <span>{data.country}</span>
           </h2>
-          <h1>{Math.round(today.main.temp)} °F</h1>
+          <h1>{Math.round(today.main.temp)} °C</h1>
         </C.City>
         <div className="temp">
           {data.list.map((item, i) => (
             <div key={i}>
-              <p>{i === 0 ? "Now" : new Date(item.dt * 1000).getHours()}</p>
+              <p>{i === 0 ? "Agora" : new Date(item.dt * 1000).getHours()}</p>
               <img
                 src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
                 alt={`weather-icon-${item.weather[0].description}`}

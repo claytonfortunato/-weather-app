@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  height: 40vh;
   display: flex;
   align-items: center;
   gap: 30px;
@@ -11,25 +12,30 @@ export const City = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
+  margin-top: 20px;
 
   h2 {
     font-size: 3rem;
-    color: #fff;
+    text-transform: uppercase;
   }
 
-  h1 {
-    color: #fff;
+  span {
+    font-weight: 100;
   }
 `;
 
 export const Option = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
   .temp {
     display: flex;
     overflow-x: scroll;
-    width: 400px;
+    width: 500px;
   }
 `;
 

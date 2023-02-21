@@ -15,19 +15,21 @@ const App = (): JSX.Element => {
   } = useForecast();
 
   return (
-    <C.Container>
-      {forecast ? (
-        <Forecast data={forecast} />
-      ) : (
-        <Search
-          term={term}
-          options={options}
-          onInputChange={onInputChange}
-          onOptionSelect={onOptionSelect}
-          onSubmit={onSubmit}
-        />
-      )}
-    </C.Container>
+    <>
+      <C.Container>
+        {forecast ? (
+          <Forecast data={forecast} />
+        ) : (
+          <Search
+            term={term}
+            options={options}
+            onInputChange={onInputChange}
+            onOptionSelect={onOptionSelect}
+            onSubmit={onSubmit}
+          />
+        )}
+      </C.Container>
+    </>
   );
 };
 
