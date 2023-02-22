@@ -19,20 +19,18 @@ import {
   getVisibilityValue,
   getSunTime,
 } from "../../helpers/index";
-import { Router } from "../../router";
 
 const Forecast = ({ data }: Props) => {
   const today = data.list[0];
 
   return (
     <>
-      <Router />
       <C.Option>
-        <C.Button>
-          <Link to="/">
+        <Link to="/">
+          <C.Button>
             <AiOutlineArrowLeft />
-          </Link>
-        </C.Button>
+          </C.Button>
+        </Link>
         <C.City>
           <h2>
             {data.name} <span>{data.country}</span>
