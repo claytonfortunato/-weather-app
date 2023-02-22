@@ -63,3 +63,22 @@ export const Description = styled.p`
   color: #fff;
   padding: 0.4rem;
 `;
+
+export const Button = styled.button`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 350ms all ease-in-out;
+  position: relative;
+  top: 10%;
+  left: -30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+`;

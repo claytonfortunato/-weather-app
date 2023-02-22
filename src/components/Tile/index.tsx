@@ -25,11 +25,11 @@ const Tile = ({ icon, title, info, description }: Props): JSX.Element => {
   return (
     <C.Container>
       <div>
-        <Icon /> <h4 className="ml-1">{title}</h4>
+        <Icon /> <h4>{title}</h4>
       </div>
-      <h3 className="mt-2 text-lg">{info}</h3>
+      <h3>{info}</h3>
 
-      <div className="text-xs font-bold">{description}</div>
+      <div>{description}</div>
     </C.Container>
   );
 };

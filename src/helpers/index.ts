@@ -17,7 +17,7 @@ export const getHumidityValue = (level: number): string => {
   if (level <= 55) return "Dry and comfortable";
   if (level > 55 && level <= 65) return "A bit uncomfortable, sticky feeling";
 
-  return "Lots of moisture, uncomfortable air";
+  return "Muita umidade, ar desconfortável";
 };
 
 export const getVisibilityValue = (number: number): string => {
@@ -26,7 +26,7 @@ export const getVisibilityValue = (number: number): string => {
   if (number > 500 && number <= 2000) return "Expect some fog";
   if (number > 2000 && number <= 9000) return "Expect some haze";
 
-  return "Very clear day";
+  return "Dia limpo";
 };
 
 export const getSunTime = (timestamp: number): string => {
@@ -41,8 +41,8 @@ export const getSunTime = (timestamp: number): string => {
 };
 
 export const getPop = (value: number): string => {
-  if (value <= 0.33) return "Low probability";
-  if (value > 0.33 && value <= 0.66) return "Moderate probability";
+  if (value <= 0.33) return "Baixa probabilidade";
+  if (value > 0.33 && value <= 0.66) return "Probabilidade moderada";
 
-  return "High probability";
+  return "Probabilidade";
 };

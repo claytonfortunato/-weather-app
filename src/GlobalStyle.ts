@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
 body {
   width: 100%;
   height: 100vh;
-  
+
   background: url('assets/sunset.jpg') no-repeat center center fixed;
   background-size: cover;
   

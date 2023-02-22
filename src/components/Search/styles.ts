@@ -2,10 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-
   margin-top: 0.2rem;
 
   p {
@@ -17,8 +15,8 @@ export const Container = styled.div`
     background-color: #fff;
     text-align: center;
     position: absolute;
-    top: 19%;
-    left: 39%;
+    top: 52%;
+    left: 56%;
   }
 
   li {
@@ -42,6 +40,9 @@ export const Container = styled.div`
 export const Header = styled.h1`
   text-transform: uppercase;
   font-size: 3rem;
+  p {
+    font-size: 1rem;
+  }
 `;
 
 export const Search = styled.div`

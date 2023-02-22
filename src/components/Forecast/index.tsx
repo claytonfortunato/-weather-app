@@ -1,11 +1,12 @@
 import { forecastType } from "../../types";
 import Tile from "../Tile";
 import Degree from "../Degree";
-
-import * as C from "./styles";
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import Sunrise from "../icons/Sunrise";
 import Sunset from "../icons/Sunset";
+
+import * as C from "./styles";
 
 type Props = {
   data: forecastType;
@@ -24,6 +25,9 @@ const Forecast = ({ data }: Props) => {
   return (
     <>
       <C.Option>
+        <C.Button>
+          <AiOutlineArrowLeft />
+        </C.Button>
         <C.City>
           <h2>
             {data.name} <span>{data.country}</span>
