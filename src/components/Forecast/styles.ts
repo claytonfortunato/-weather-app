@@ -26,8 +26,7 @@ export const City = styled.div`
 
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
-  margin-top: 20px;
-
+  margin-right: 40px;
   h2 {
     font-size: 3rem;
     text-transform: uppercase;

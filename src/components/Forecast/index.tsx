@@ -1,11 +1,9 @@
 import { forecastType } from "../../types";
 import Tile from "../Tile";
 import Degree from "../Degree";
-import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import Sunrise from "../icons/Sunrise";
 import Sunset from "../icons/Sunset";
-import { Link } from "react-router-dom";
 
 import * as C from "./styles";
 
