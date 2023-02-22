@@ -25,73 +25,72 @@ const Forecast = ({ data }: Props) => {
 
   return (
     <>
-      <C.Option>
-        <Link to="/">
-          <C.Button>
-            <AiOutlineArrowLeft />
-          </C.Button>
-        </Link>
-        <C.City>
-          <h2>
-            {data.name} <span>{data.country}</span>
-          </h2>
-          <h1>{Math.round(today.main.temp)} °C</h1>
-        </C.City>
-        <div className="temp">
-          {data.list.map((item, i) => (
-            <div key={i}>
-              <p>{i === 0 ? "Agora" : new Date(item.dt * 1000).getHours()}</p>
-              <img
-                src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
-                alt={`weather-icon-${item.weather[0].description}`}
-              />
-              <p>
-                <Degree temp={Math.round(item.main.temp)} />
-              </p>
-            </div>
-          ))}
-        </div>
-      </C.Option>
-      <C.Description>{today.weather[0].main}</C.Description>
       <C.Container>
-        <C.Sun>
-          <Sunrise />
-          {getSunTime(data.sunrise)}
-          <Sunset />
-          {getSunTime(data.sunset)}
-        </C.Sun>
+        <C.Option>
+          <C.City>
+            <h2>
+              {data.name} <span>{data.country}</span>
+            </h2>
+            <h1>{Math.round(today.main.temp)} °C</h1>
+          </C.City>
+          <div className="temp">
+            {data.list.map((item, i) => (
+              <div key={i}>
+                <p>{i === 0 ? "Agora" : new Date(item.dt * 1000).getHours()}</p>
+                <img
+                  src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}
+                  alt={`weather-icon-${item.weather[0].description}`}
+                />
+                <p>
+                  <Degree temp={Math.round(item.main.temp)} />
+                </p>
+              </div>
+            ))}
+          </div>
+        </C.Option>
+        <C.Description>{today.weather[0].main}</C.Description>
+        <C.Box>
+          <C.Sun>
+            <Sunrise />
+            {getSunTime(data.sunrise)}
+            <Sunset />
+            {getSunTime(data.sunset)}
+          </C.Sun>
 
-        <Tile
-          icon="feels"
-          title="Feels like"
-          info={<Degree temp={Math.round(today.main.feels_like)} />}
-          description={`Feels ${
-            Math.round(today.main.feels_like) < Math.round(today.main.temp)
-              ? "colder"
-              : "warmer"
-          }`}
-        />
+          <Tile
+            icon="feels"
+            title="Feels like"
+            info={<Degree temp={Math.round(today.main.feels_like)} />}
+            description={`Feels ${
+              Math.round(today.main.feels_like) < Math.round(today.main.temp)
+                ? "colder"
+                : "warmer"
+            }`}
+          />
 
-        <Tile
-          icon="visibility"
-          title="Visibility"
-          info={`${(today.visibility / 1000).toFixed()} km`}
-          description={getVisibilityValue(today.visibility)}
-        />
-        <Tile
-          icon="humidity"
-          title="Humidity"
-          info={`${today.main.humidity} %`}
-          description={getHumidityValue(today.main.humidity)}
-        />
+          <Tile
+            icon="visibility"
+            title="Visibility"
+            info={`${(today.visibility / 1000).toFixed()} km`}
+            description={getVisibilityValue(today.visibility)}
+          />
+          <Tile
+            icon="humidity"
+            title="Humidity"
+            info={`${today.main.humidity} %`}
+            description={getHumidityValue(today.main.humidity)}
+          />
 
-        <Tile
-          icon="wind"
-          title="Wind"
-          info={`${Math.round(today.wind.speed)} km/h`}
-          description={`${getWindDirection(Math.round(today.wind.deg))}, gusts 
+          <Tile
+            icon="wind"
+            title="Wind"
+            info={`${Math.round(today.wind.speed)} km/h`}
+            description={`${getWindDirection(
+              Math.round(today.wind.deg)
+            )}, Gusts 
             ${today.wind.gust.toFixed(1)} km/h`}
-        />
+          />
+        </C.Box>
       </C.Container>
     </>
   );

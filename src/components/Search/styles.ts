@@ -1,10 +1,11 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  width: 100%;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin-top: 0.2rem;
+  margin: 0.8rem 0rem;
 
   p {
     margin: 20px 0px;
@@ -15,8 +16,8 @@ export const Container = styled.div`
     background-color: #fff;
     text-align: center;
     position: absolute;
-    top: 52%;
-    left: 56%;
+    top: 10%;
+    right: 21%;
   }
 
   li {
@@ -29,10 +30,10 @@ export const Container = styled.div`
     width: 100%;
     background-color: #fff;
     text-align: left;
-    line-height: 1px;
+    line-height: 0.5px;
 
     &:hover {
-      background-color: #ddd;
+      background-color: #f2f2f2;
     }
   }
 `;

@@ -2,8 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const Box = styled.div`
+  width: 100%;
   height: 40vh;
   display: flex;
+
   align-items: center;
   gap: 30px;
 `;
@@ -30,7 +40,7 @@ export const City = styled.div`
 
 export const Option = styled.div`
   display: flex;
-  flex-wrap: wrap;
+
   gap: 40px;
   .temp {
     display: flex;

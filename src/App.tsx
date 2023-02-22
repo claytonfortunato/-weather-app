@@ -18,7 +18,16 @@ const App = (): JSX.Element => {
     <>
       <C.Container>
         {forecast ? (
-          <Forecast data={forecast} />
+          <>
+            <Search
+              term={term}
+              options={options}
+              onInputChange={onInputChange}
+              onOptionSelect={onOptionSelect}
+              onSubmit={onSubmit}
+            />
+            <Forecast data={forecast} />
+          </>
         ) : (
           <Search
             term={term}
