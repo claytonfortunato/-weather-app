@@ -5,6 +5,7 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 
 import Sunrise from "../icons/Sunrise";
 import Sunset from "../icons/Sunset";
+import { Link } from "react-router-dom";
 
 import * as C from "./styles";
 
@@ -18,15 +19,19 @@ import {
   getVisibilityValue,
   getSunTime,
 } from "../../helpers/index";
+import { Router } from "../../router";
 
 const Forecast = ({ data }: Props) => {
   const today = data.list[0];
 
   return (
     <>
+      <Router />
       <C.Option>
         <C.Button>
-          <AiOutlineArrowLeft />
+          <Link to="/">
+            <AiOutlineArrowLeft />
+          </Link>
         </C.Button>
         <C.City>
           <h2>
