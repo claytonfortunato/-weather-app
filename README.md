@@ -21,6 +21,14 @@ Essa aplicação web tem o intuito de buscar e mostrar a temperatura de cada cid
 
 - Mostrando clima de cada cidade
 
+- Horário de inicio e terminar o por-do-sol
+
+- Velocidade e direção do vento
+
+- Radar meteorológico e mapas de chuva
+
+- Humidade do ar
+
 
 # :technologist: Tecnologias
  
