@@ -12,12 +12,12 @@ export const Container = styled.div`
   }
 
   ul {
-    max-width: 500px;
+    width: 120px;
     background-color: #fff;
     text-align: center;
     position: absolute;
     top: 10%;
-    right: 21%;
+    right: 22%;
   }
 
   li {
